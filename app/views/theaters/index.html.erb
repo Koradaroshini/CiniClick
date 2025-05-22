@@ -1,0 +1,43 @@
+<div class="container py-5">
+  <p class="text-success text-center"><%= notice %></p>
+
+  <% content_for :title, "Theaters" %>
+
+  <h1 class="text-center mb-4">Theaters</h1>
+
+  <div class="row gx-4 gy-4">
+    <% if @theaters.present? %>
+      <% @theaters.each_slice(3) do |theater_row| %>
+        <div class="row mb-4">
+          <% theater_row.each do |theater| %>
+            <div class="col-md-4 d-flex">
+              <div class="card shadow-lg border-0 mb-4 flex-fill">
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title text-center mb-2"><%= theater.name %></h5>
+                  <p class="card-text mb-3">
+                    <strong>Location:</strong> <%= theater.location %><br>
+                    <strong>Capacity:</strong> <%= theater.number_of_seats %>
+                  </p>
+                  <div class="mt-auto d-flex justify-content-center">
+                    <%= link_to "Show this theater", theater_path(theater), class: "btn btn-primary btn-sm me-2" %>
+                    <%= link_to "Edit", edit_theater_path(theater), class: "btn btn-warning btn-sm me-2" %>
+                    <%= link_to "Delete", theater_path(theater), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <p class="text-center">No theaters found.</p>
+    <% end %>
+  </div>
+
+  <div class="d-flex justify-content-center mt-4">
+    <%= link_to "New Theater", new_theater_path, class: "btn btn-success" %>
+  </div>
+  <div class="d-flex justify-content-center mt-4">
+    <%= link_to "Back", admin_url, class: "btn btn-secondary" %>
+  </div>
+</div>

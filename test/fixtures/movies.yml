@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  genre: MyString
+  release_date: 2025-05-13
+  rating: 9.99
+  description: MyText
+  language: MyString
+
+two:
+  title: MyString
+  genre: MyString
+  release_date: 2025-05-13
+  rating: 9.99
+  description: MyText
+  language: MyString

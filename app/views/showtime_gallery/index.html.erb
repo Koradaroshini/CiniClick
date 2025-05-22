@@ -1,0 +1,29 @@
+
+<h1>Showtime Gallery </h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Show Date</th>
+      <th>Available Seats</th>
+      <th>Price</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @showtimes.each do |showtime| %>
+      <tr>
+        <td><%= showtime.show_date.strftime("%d %B %Y, %H:%M") %></td>
+        <td><%= showtime.available_seats %></td>
+<td><%= number_to_currency(showtime.price, unit: "₹", precision: 2, delimiter: ",") %></td>
+<td><% if showtime.available_seats > 0 %>
+            <%= link_to "Book", bookings_path(showtime_id: showtime.id), class: "btn btn-primary" %>
+          <% else %>
+            <span class="text-danger">Sold Out</span>
+          <% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Back to Theater Gallery", theater_gallery_index_path, class: "btn btn-secondary" %>

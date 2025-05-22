@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-5 shadow-lg" style="width: 400px;">
+    <h2 class="text-center mb-4 text-primary">
+      <i class="bi bi-person-circle"></i> Admin Login
+    </h2>
+
+    <%= form_with url: "/admin/login", method: :post, html: { class: "needs-validation", novalidate: true } do |form| %>
+
+      <% if flash[:alert] %>
+        <div class="alert alert-danger"> <%= flash[:alert] %> </div>
+      <% end %>
+
+      <div class="mb-3">
+        <%= form.label :username, "Username", class: "form-label" %>
+        <%= form.text_field :username, class: "form-control", required: true %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :password, "Password", class: "form-label" %>
+        <%= form.password_field :password, class: "form-control", required: true %>
+      </div>
+
+      <div class="d-grid mb-3">
+        <%= form.submit "Login", class: "btn btn-primary" %>
+      </div>
+
+    <% end %>
+     <div class="d-flex justify-content-center mt-4">
+    <%= link_to "Home", home_path, class: "btn btn-secondary" %>
+  </div>
+  </div>
+</div>
+

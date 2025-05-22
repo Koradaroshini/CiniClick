@@ -1,0 +1,2 @@
+module MoviesGalleryHelper
+end

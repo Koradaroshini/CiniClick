@@ -1,0 +1,40 @@
+<% content_for :title, "Showtimes" %>
+
+<div class="container py-5">
+  <% if notice %>
+    <div class="alert alert-success text-center"><%= notice %></div>
+  <% end %>
+
+  <h1 class="text-center mb-4">Showtimes</h1>
+
+  <% if @showtimes.present? %>
+    <% @showtimes.each_slice(3) do |showtime_row| %>
+      <div class="row mb-4">
+        <% showtime_row.each do |showtime| %>
+          <div class="col-md-4 d-flex">
+            <div class="card shadow-lg border-0 flex-fill">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-center"><%= showtime.movie.title rescue "Untitled Movie" %></h5>
+                <p class="card-text mb-3">
+                  <strong>Theater:</strong> <%= showtime.theater.name rescue "N/A" %><br>
+                  <strong>Start Time:</strong> <%= showtime.show_date.strftime("%b %d, %Y %I:%M %p") %>
+                </p>
+               <div class="mt-auto text-center">
+  <%= link_to "Show this showtime", showtime_path(showtime), class: "btn btn-success btn-sm" %>
+             </div>
+
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <p class="text-center">No showtimes available.</p>
+  <% end %>
+
+  <div class="d-flex justify-content-center mt-4 gap-3">
+    <%= link_to "New showtime", new_showtime_path, class: "btn btn-secondary" %>
+    <%= link_to "Back", admin_url, class: "btn btn-outline-secondary" %>
+  </div>
+</div>

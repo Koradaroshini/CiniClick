@@ -1,0 +1,11 @@
+<% content_for :title, "New showtime" %>
+
+<h1>New showtime</h1>
+
+<%= render "form", showtime: @showtime %>
+
+<br>
+
+<div>
+  <%= link_to "Back to showtimes", showtimes_path %>
+</div>

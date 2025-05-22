@@ -1,0 +1,17 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-5 shadow-lg text-center" style="width: 400px;">
+    <h1 class="text-success mb-4">
+      <i class="bi bi-emoji-laughing-fill"></i> 😊Enjoy the Show!😊
+    </h1>
+
+    <p><strong>Theater:</strong> <%= @theater.name %></p>
+    <p><strong>Showtime:</strong> <%= @showtime.show_date.strftime("%d %b %Y, %I:%M %p") %></p>
+    <p><strong>Number of Tickets:</strong> <%= @booking.number_of_tickets %></p>
+  
+    <p><strong>Total Amount:</strong> ₹<%= @booking.total_amount %></p>
+
+    <p class="text-success fs-5 mt-3"><i class="bi bi-balloon-fill"></i> 🎉 Thank you for your payment. Enjoy the movie!🎉  <i class="bi bi-balloon-fill"></i></p>
+
+    <%= link_to "Back to Home", root_path, class: "btn btn-primary mt-3" %>
+  </div>
+</div>

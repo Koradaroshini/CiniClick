@@ -1,0 +1,11 @@
+<h1>Booking Review</h1><br/>
+
+<p><strong>Number of Tickets:</strong> <%= @booking.number_of_tickets %></p>
+<p><strong>Total Amount:</strong> ₹<%= @booking.total_amount %></p>
+
+<div>
+  <%= link_to "Proceed to Payment", new_payment_path(booking_id: @booking.id), class: "btn btn-primary" %>
+</div>
+<br/>
+
+<%= link_to "Back ", bookings_path, class: "btn btn-secondary" %>
