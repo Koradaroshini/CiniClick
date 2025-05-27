@@ -1,16 +1,18 @@
-<% content_for :title, "Editing Theater" %>
 
-<div class="container vh-100 d-flex justify-content-center align-items-center">
-  <div class="col-md-6">
-    <div class="card shadow">
-      <div class="card-body">
-        <h1 class="mb-4 text-center">Editing Theater</h1>
-        <%= render 'form', theater: @theater %>
-        <div class="mt-4 d-flex justify-content-between">
-          <%= link_to 'Show this theater', @theater, class: 'btn btn-info' %>
-          <%= link_to 'Back to theaters', theaters_path, class: 'btn btn-secondary' %>
-        </div>
-      </div>
+
+<div class="container py-5">
+  <h1 class="text-center mb-4">Theater Details</h1>
+
+  <div class="card shadow-lg border-0 mb-4 mx-auto" style="width: 400px;">
+    <div class="card-body">
+      <%= render @theater %>
+    </div>
+
+    <div class="card-footer d-flex justify-content-center">
+      <%= link_to "Edit this theater", edit_theater_path(@theater), class: "btn btn-primary btn-sm me-2" %>
+      <%= button_to "Destroy this theater", @theater, method: :delete, class: "btn btn-danger btn-sm me-2" %>
+      <%= link_to "Back to theater", theaters_path, class: "btn btn-secondary btn-sm" %>
     </div>
   </div>
 </div>
+

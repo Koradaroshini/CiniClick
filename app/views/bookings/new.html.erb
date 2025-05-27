@@ -12,15 +12,7 @@
   <div>
     <%= form.label :number_of_tickets, "Number of Tickets" %>
     <%= form.number_field :number_of_tickets, min: 1, required: true %>
-  </div>
-  <%# <div class="mb-3">
-      <%= form.label :seat_numbers, "Select Seat Numbers" %><br>
-      <%# <% @available_seats.each do |seat_number| %>
-        <%# <label class="me-2"> %>
-          <%# <%= check_box_tag 'booking[seat_numbers][]', seat_number Seat <%= seat_number %>
-        <%# </label>
-      <% end %>
-    <%# </div>  %>
+  </div>  
 <br/>
   <%= form.hidden_field :showtime_id, value: @booking.showtime_id %>
 

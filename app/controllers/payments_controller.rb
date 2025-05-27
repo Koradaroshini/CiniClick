@@ -6,7 +6,7 @@ class PaymentsController < ApplicationController
   def create
     @booking = Booking.find(params[:booking_id])
 
-  # Dummy payment processing logic
+ 
    if params[:credit_card_number].present?
     # Update seat count after successful payment
     @booking.update_seat_count!

@@ -13,8 +13,7 @@ class MoviesGalleryController < ApplicationController
   # Book Ticket Action (Placeholder)
   def book_ticket
     @movie = Movie.find(params[:id])
-    # For now, we'll just display a message. 
-    # Implement actual booking logic in future.
+ 
     flash[:notice] = "Ticket booked successfully for #{@movie.title}"
     redirect_to movies_gallery_path
   end
